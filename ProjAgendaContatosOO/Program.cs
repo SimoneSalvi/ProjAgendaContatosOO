@@ -9,7 +9,7 @@ internal class Program
 
         List<Contact> phoneBook = new();
 
-        phoneBook = LoadFromFile(contactsFile, phoneBook);
+//        phoneBook = LoadFromFile(contactsFile, phoneBook);
 
         bool flag = false;
 
@@ -54,7 +54,7 @@ internal class Program
         }
     }
 
-    private static List<Contact> LoadFromFile(string contactsFile, List<Contact> phoneBook)
+/*    private static List<Contact> LoadFromFile(string contactsFile, List<Contact> phoneBook)
     {
         if (File.Exists(contactsFile))
         {
@@ -96,6 +96,7 @@ internal class Program
 
         return phoneBook;
     }
+*/
 
     //Método Criar Contato
     public static Contact CreateContact(List<Contact> l)
@@ -161,7 +162,7 @@ internal class Program
             {
                 var txt = ReadFile(p);
                 StreamWriter sw = new StreamWriter(p);
-                sw.WriteLine(txt);
+                sw.Write(txt);
                 foreach (Contact item in l)
                 {
                     sw.WriteLine(item.ToFile());
@@ -196,10 +197,10 @@ internal class Program
     }
 
     // metodo para Ler o arquivo
-    private static object ReadFile(string p)
+    private static string ReadFile(string p)
     {
         {
-            StreamReader sr = new StreamReader(p);
+            StreamReader sr = new(p);
             string text = "";
             try
             {
